@@ -1,0 +1,80 @@
+.ngx-resize-detector-container {
+  @apply flex flex-col justify-start items-start w-full h-full p-6;
+
+  &__title {
+    @apply font-sans text-5xl font-bold;
+
+    &:hover {
+      transform: scale(1.005);
+    }
+  }
+
+  &__body {
+    height: calc(100% - 5rem);
+    @apply w-full mt-6 grid sm:grid-cols-2 grid-cols-1;
+
+
+    &-left {
+      height: fit-content;
+      @apply flex flex-col justify-start items-start p-4 overflow-y-auto overflow-x-hidden;
+
+      & .resize-area {
+        height: fit-content;
+        @apply w-full;
+
+        &-title {
+          @apply font-sans text-2xl text-blue-900 font-medium mb-4;
+        }
+
+        &-box {
+          @apply w-full bg-indigo-300 resize overflow-auto max-w-full h-96;
+        }
+      }
+
+      & .controls {
+        @apply w-full mt-8;
+
+        &-title {
+          @apply font-sans text-2xl text-blue-900 font-medium mb-6;
+        }
+
+        &-form {
+          @apply w-full flex flex-col justify-start items-start;
+
+          &-section {
+            @apply w-full flex justify-start items-center mb-4;
+
+            & span {
+              @apply font-mono text-base font-semibold w-1/2;
+            }
+
+            & input {
+              @apply bg-gray-200 appearance-none border border-gray-200 rounded flex-grow w-auto py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500;
+            }
+          }
+        }
+      }
+    }
+
+    &-right {
+      height: fit-content;
+      @apply flex flex-col justify-start items-start p-4 overflow-y-auto overflow-x-hidden;
+
+      & .resize-logs {
+        @apply w-full h-full;
+
+        &-title {
+          @apply font-sans text-2xl text-blue-900 font-medium mb-4;
+        }
+
+        &-body {
+          @apply w-full h-full;
+
+          & .resize-log {
+            @apply px-4 py-2 bg-gray-50 rounded border border-gray-300 mb-1 text-sm font-medium break-words;
+          }
+        }
+      }
+    }
+  }
+}
