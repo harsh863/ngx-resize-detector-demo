@@ -9,6 +9,8 @@
              ngxResizeDetector
              [debounce]="controls.debounce.value"
              [delay]="controls.delay.value"
+             [disabled]="controls.disabled.value === '1'"
+             [distinctUntilChanged]="controls.distinctUntilChanged.value"
              (onDimensionsChange)="onDimensionChange($event)">
         </div>
       </div>
@@ -22,6 +24,24 @@
           <div class="controls-form-section">
             <span>Delay (in milliseconds)</span>
             <input [formControl]="controls.delay" type="number" min="0">
+          </div>
+          <div class="controls-form-section">
+            <span>Disabled ( boolean )</span>
+            <select [formControl]="controls.disabled">
+              <option [value]="0">False ( listen to event )</option>
+              <option [value]="1">True ( stop events emission )</option>
+            </select>
+          </div>
+          <div class="controls-form-section mt-4">
+            <span>Distinct Until Changed</span>
+            <div class="checkbox-section">
+              <span class="checkbox" *ngFor="let option of elementDimensionOptions">
+                <input type="checkbox" id="{{option.value}}"
+                       [checked]="controls?.distinctUntilChanged?.value?.includes(option.value)"
+                       (change)="onDistinctUntilChangeOptionCheck(option.value)">
+                <label for="{{option.value}}">{{option.label.replace('_', ' ') | titlecase}}</label>
+              </span>
+            </div>
           </div>
         </div>
       </div>

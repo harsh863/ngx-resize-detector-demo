@@ -48,8 +48,25 @@
               @apply font-mono text-base font-semibold w-1/2;
             }
 
-            & input {
+            & input[type='number'],
+            & select {
               @apply bg-gray-200 appearance-none border border-gray-200 rounded flex-grow w-auto py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500;
+            }
+
+            & .checkbox-section {
+              @apply flex-grow w-auto grid grid-cols-2 gap-3;
+
+              & .checkbox {
+                @apply flex w-full items-center;
+
+                & input[type='checkbox'] {
+                  @apply appearance-none outline-none mr-2 rounded;
+                }
+
+                & label {
+                  @apply font-sans text-sm w-1/2 whitespace-pre font-normal;
+                }
+              }
             }
           }
         }
