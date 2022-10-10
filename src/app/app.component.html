@@ -50,7 +50,7 @@
       <div class="resize-logs">
         <div class="resize-logs-title"># Resize logs 📃</div>
         <div class="resize-logs-body">
-          <div class="resize-log" *ngFor="let log of dimensionsLog">{{jsonToString(log)}}</div>
+          <div class="resize-log" *ngFor="let log of ($dimensionLogs | async)">{{jsonToString(log)}}</div>
         </div>
       </div>
     </div>
